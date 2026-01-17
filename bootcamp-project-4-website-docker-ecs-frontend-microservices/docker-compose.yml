@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  frontend1:
+    build: ./frontend1
+    container_name: frontend1
+    ports:
+      - "3001:3000"
+
+  frontend2:
+    build: ./frontend2
+    container_name: frontend2
+    ports:
+      - "3002:3000"
