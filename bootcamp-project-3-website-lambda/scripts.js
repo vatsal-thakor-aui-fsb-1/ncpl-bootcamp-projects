@@ -1,13 +1,14 @@
 // Add your API endpoint here
-var API_ENDPOINT = "https://rbctc13d73.execute-api.us-east-2.amazonaws.com/prod";
+var API_ENDPOINT = "https://ic66qwg22c.execute-api.us-east-2.amazonaws.com/stage";
 
-// AJAX POST request to save student data
-document.getElementById("savestudent").onclick = function(){
+// AJAX POST request to save Inspection Report data
+document.getElementById("saveinspection").onclick = function(){
     var inputData = {
-        "studentid": $('#studentid').val(),
-        "name": $('#name').val(),
+        "inspectionid": $('#inspectionid').val(),
+        "clientname": $('#clientname').val(),
         "class": $('#class').val(),
-        "age": $('#age').val()
+        "status": $('#status').val(),
+        "notes": $('#notes').val()
     };
     $.ajax({
         url: API_ENDPOINT,
@@ -15,33 +16,34 @@ document.getElementById("savestudent").onclick = function(){
         data:  JSON.stringify(inputData),
         contentType: 'application/json; charset=utf-8',
         success: function (response) {
-            document.getElementById("studentSaved").innerHTML = "Student Data Saved!";
+            document.getElementById("inspectionSaved").innerHTML = "Inspection Report Saved!";
         },
         error: function () {
-            alert("Error saving student data.");
+            alert("Error saving Inspection Report.");
         }
     });
 }
 
-// AJAX GET request to retrieve all students
-document.getElementById("getstudents").onclick = function(){  
+// AJAX GET request to retrieve all Inspection Reports
+document.getElementById("getInspectionReports").onclick = function(){  
     $.ajax({
         url: API_ENDPOINT,
         type: 'GET',
         contentType: 'application/json; charset=utf-8',
         success: function (response) {
-            $('#studentTable tr').slice(1).remove();
+            $('#inspectionReportTable tr').slice(1).remove();
             jQuery.each(response, function(i, data) {          
-                $("#studentTable").append("<tr> \
-                    <td>" + data['studentid'] + "</td> \
-                    <td>" + data['name'] + "</td> \
+                $("#inspectionReportTable").append("<tr> \
+                    <td>" + data['inspectionid'] + "</td> \
+                    <td>" + data['clientname'] + "</td> \
                     <td>" + data['class'] + "</td> \
-                    <td>" + data['age'] + "</td> \
+                    <td>" + data['status'] + "</td> \
+                    <td>" + data['notes'] + "</td> \
                     </tr>");
             });
         },
         error: function () {
-            alert("Error retrieving student data.");
+            alert("Error retrieving Inspection Reports.");
         }
     });
 }

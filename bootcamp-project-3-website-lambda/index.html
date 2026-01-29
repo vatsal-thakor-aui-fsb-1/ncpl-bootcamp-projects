@@ -61,29 +61,33 @@
 </head>
 <body>
     <div class="container">
-        <h1>Save and View Student Data</h1>
-        <label for="studentid">Student ID:</label><br>
-        <input type="text" name="studentid" id="studentid"><br>
+        <h1>Save and View Inspection Report</h1>
+        <label for="inspectionid">Inspection ID:</label><br>
+        <input type="text" name="inspectionid" id="inspectionid"><br>
         
-        <label for="name">Name:</label><br>
-        <input type="text" name="name" id="name"><br>
+        <label for="clientname">Client Name:</label><br>
+        <input type="text" name="clientname" id="clientname"><br>
         
-        <label for="class">Class:</label><br>
+        <label for="class">Building Class:</label><br>
         <input type="text" name="class" id="class"><br>
         
-        <label for="age">Age:</label><br>
-        <input type="text" name="age" id="age"><br>
+        <label for="status">Status:</label><br>
+        <input type="text" name="status" id="status"><br>
+        
+        <label for="notes">Notes:</label><br>
+        <input type="text" name="notes" id="notes"><br>
+
+        <br>
+        <input type="submit" id="saveinspection" value="Save Inspection Report">
+        <p id="inspectionSaved"></p>
         
         <br>
-        <input type="submit" id="savestudent" value="Save Student Data">
-        <p id="studentSaved"></p>
-        
-        <br>
-        <input type="submit" id="getstudents" value="View all Students">
+        <input type="submit" id="getInspectionReports" value="View all Inspection Report">
         <br><br>
-        <div id="showStudents">
-            <table id="studentTable">
+        <div id="showInspectionReports">
+            <table id="inspectionReportTable">
                 <colgroup>
+                    <col style="width:20%">
                     <col style="width:20%">
                     <col style="width:20%">
                     <col style="width:20%">
@@ -91,10 +95,11 @@
                 </colgroup>
                 <thead>
                     <tr>
-                        <th>Student ID</th>
-                        <th>Name</th>
-                        <th>Class</th>
-                        <th>Age</th>
+                        <th>Inspection ID</th>
+                        <th>Client Name</th>
+                        <th>Building Class</th>
+                        <th>Status</th>
+                        <th>Notes</th>
                     </tr>
                 </thead>
                 <tbody>
